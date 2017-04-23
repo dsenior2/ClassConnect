@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<!--
+	Transit by TEMPLATED
+	templated.co @templatedco
+	Released for free under the Creative Commons Attribution 3.0 license (templated.co/license)
+-->
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title> </title>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<meta name="description" content="" />
+		<meta name="keywords" content="" />
+		<!--[if lte IE 8]><script src="js/html5shiv.js"></script><![endif]-->
+		<script src="js/jquery.min.js"></script>
+		<script src="js/skel.min.js"></script>
+		<script src="js/skel-layers.min.js"></script>
+		<script src="js/init.js"></script>
+	
+		<link rel="stylesheet" href="css/skel.css" />
+		<link rel="stylesheet" href="css/style.css" />
+		<link rel="stylesheet" href="css/style-xlarge.css" />
+	
+
+		<!-- Latest compiled and minified CSS -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+
+
+		<!-- Latest compiled and minified JavaScript -->
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+		
+	</head>
+	<body class="landing">
+
+		<!-- Banner -->
+			<section id="banner">
+				<h2><span style="font-weight: bolder">Class</span>Connect</h2>
+				<p>Connecting people with courses in a new way. </p>
+				  <div class="container">
+        
+                    <!--<div class="starter-template">-->
+                        
+                  <center>  <div class="input-group">
+                        <label><b><font color="white" size="5">Username</font></b></label>
+                        <input id="username" type="text" placeholder="Enter Username" name="uname" required>
+                        <label><b><font color="white" size="5">Password</font></b></label>
+                        <input id="password" type="password" placeholder="Enter Password" name="psw" required style="width: 800px">
+                        
+                    </div> </center>
+				<br />
+			     <button type="button"  class="btn btn-primary" onclick="login()">Login</button>
+				 <br />
+				 <br />
+			     <button type="button" class="btn btn-primary"><a href="register.html"><font color="white">Create Account</font></button>
+			</section>
+
+		
+</html>
+
+<script type="text/javascript">
+	function login(){
+		alert('return sent');
+		$.ajax({
+			type: "POST",
+			url: "",
+			datatype: "JSON",
+			data: {
+				action : "login",
+				username : $("#username").val(),
+				password : $("password").val()
+			},
+			success: function(response){
+				location = "index.html";
+			}
+		});
+	}
+</script>
