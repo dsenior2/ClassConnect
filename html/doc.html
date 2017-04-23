@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>ClassConnect | Documentation</title>
+    <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
+    <!-- Bootstrap 3.3.2 -->
+    <link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <!-- Font Awesome Icons -->
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+    <!-- Ionicons -->
+    <link href="http://code.ionicframework.com/ionicons/2.0.0/css/ionicons.min.css" rel="stylesheet" type="text/css" />
+    <!-- Theme style -->
+    <link href="../dist/css/AdminLTE.min.css" rel="stylesheet" type="text/css" />
+    <link href="../dist/css/skins/skin-blue.min.css" rel="stylesheet" type="text/css" />
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+        <link rel="stylesheet" type="text/css" href="assets/css/github.min.css">
+
+        <style>
+            ul {
+                list-style-type: none;
+                margin: 0;
+                padding: 0;
+                overflow: hidden;
+                background-color: #778899;
+            }
+
+            li {
+                float: left;
+                border-right:1px solid #bbb;
+            }
+
+            li:last-child {
+                border-right: none;
+            }
+
+            li a {
+                display: block;
+                color: white;
+                text-align: center;
+                padding: 10px 12px;
+                text-decoration: none;
+            }
+
+            li a:hover:not(.active) {
+                background-color: #DCDCDC;
+            }
+
+            .active {
+                background-color: #DCDCDC;
+            }
+
+            #classesRow {
+                  background-color: lightgrey;
+                  width: 500px;
+                  height: 300px;
+                  padding: 25px;
+                  margin: 25px;
+            }
+
+             .studyGroups {
+                  background-color: lightgrey;
+                  width: 500px;
+                  height: 300px;
+                  padding: 25px;
+                  margin: 25px;
+            }
+
+            .times {
+                background-color: lightgrey;
+                width: 500px;
+                height: 300px;
+                padding: 25px;
+                margin: 25px;
+            }
+
+        </style>
+    <style>
+      body {
+        font-family: 'Source Sans Pro', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+        font-weight: 500;
+      }
+      .content-wrapper {
+        padding: 0 10px;
+        font-size: 14px;
+      }
+      .page-header {
+        border: 0;        
+        margin: 0 0 20px 0;
+        padding: 0;
+        position: relative;
+        z-index: 1;
+        font-size: 30px;
+      }
+      section[id] {
+        padding: 20px 0 0 0;
+      }
+      #components > h3 {
+        font-size: 25px;
+        border-bottom: 1px solid #dedede;
+        color: #000;
+      }
+      #components > h4 {
+        font-size: 20px;
+        color: #000;
+      }
+      .page-header span {
+        z-index: 5;
+        display: inline-block;
+        background-color: #ecf0f5;
+        padding-right: 10px;
+      }
+      .page-header::before {
+        content: " ";
+        display: block;
+        background: #ccc;
+        width: 100%;
+        height: 1px;
+        position: absolute;
+        top: 50%;
+        margin-top: 2px;
+        z-index: -1;
+      }
+      .lead {
+        font-size: 16px;
+        font-weight: 400;
+      }
+      .eg{
+        position: absolute;
+        top: 0;
+        left: 0;
+        display: inline-block;
+        background: #d2d6de;
+        padding: 5px;
+        border-bottom-right-radius: 3px;
+        border-top-left-radius: 3px;
+        border-bottom: 1px solid #d2d6dc;
+        border-right: 1px solid #d2d6dc;
+      }
+      .eg + * {
+        margin-top: 30px;
+      }
+      .content {
+        padding: 10px 25px;
+      }
+      .hierarchy {
+        background: #333;
+        color: #fff;
+      }
+      .plugins-list li {
+        width: 50%;
+        float: left;
+      }
+      pre {
+        border: none;
+      }
+      /* desert scheme ported from vim to google prettify */
+      pre.prettyprint {display: block; background-color: #333; max-height: 300px; border: none!important; margin-bottom: 20px;}
+      pre .nocode { background-color: none; color: #000 }
+      pre .str { color: #ffa0a0;} /* string  - pink */
+      pre .kwd { color: #f0e68c; font-weight: bold }
+      pre .com { color: #87ceeb } /* comment - skyblue */
+      pre .typ { color: #98fb98 } /* type    - lightgreen */
+      pre .lit { color: #cd5c5c } /* literal - darkred */
+      pre .pun { color: #fff }    /* punctuation */
+      pre .pln { color: #fff }    /* plaintext */
+      pre .tag { color: #f0e68c; font-weight: bold } /* html/xml tag    - lightyellow */
+      pre .atn { color: #bdb76b; font-weight: bold } /* attribute name  - khaki */
+      pre .atv { color: #ffa0a0 } /* attribute value - pink */
+      pre .dec { color: #98fb98 } /* decimal         - lightgreen */
+
+      /* Specify class=linenums on a pre to get line numbering */
+      ol.linenums { margin-top: 0; margin-bottom: 0; color: #AEAEAE } /* IE indents via margin-left */
+      li.L0,li.L1,li.L2,li.L3,li.L5,li.L6,li.L7,li.L8 { list-style-type: none }
+      /* Alternate shading for lines */
+      li.L1,li.L3,li.L5,li.L7,li.L9 { }
+
+      @media print {
+        pre.prettyprint { background-color: none }
+        pre .str, code .str { color: #060 }
+        pre .kwd, code .kwd { color: #006; font-weight: bold }
+        pre .com, code .com { color: #600; font-style: italic }
+        pre .typ, code .typ { color: #404; font-weight: bold }
+        pre .lit, code .lit { color: #044 }
+        pre .pun, code .pun { color: #440 }
+        pre .pln, code .pln { color: #000 }
+        pre .tag, code .tag { color: #006; font-weight: bold }
+        pre .atn, code .atn { color: #404 }
+        pre .atv, code .atv { color: #060 }
+      }
+      .sidebar {
+        margin-top: 0;
+        padding-top: 0!important;
+      }
+      .box .main-header {
+        z-index: 1000;
+        position: relative;
+      }
+      .treeview .nav li a:hover,
+      .treeview .nav li a:active {
+        background: transparent;
+      }
+    </style>
+  </head>
+  <body class="skin-blue fixed" data-spy="scroll" data-target="#scrollspy">
+    <div class="wrapper">
+
+      <header class="main-header">
+        <!-- Sidebar toggle button-->
+<!--           <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
+            <span class="sr-only">Toggle navigation</span>
+          </a> -->
+        <!-- Logo -->
+<!--         <a href="../index.html" class="logo"><b>Class</b>Connect</a> -->
+        <!-- Header Navbar: style can be found in header.less -->
+        <nav class="navbar navbar-static-top" role="navigation">
+          
+          <!-- Navbar Right Menu -->
+          <div class="navbar-custom-menu">
+            <ul class="nav navbar-nav">
+             
+            </ul>
+          </div>
+        </nav>
+      </header>
+      <!-- Left side column. contains the logo and sidebar -->
+      <aside class="main-sidebar">
+        <!-- sidebar: style can be found in sidebar.less -->
+        <section class="sidebar" id="scrollspy">
+
+          <!-- sidebar menu: : style can be found in sidebar.less -->
+<!--           <ul class="nav sidebar-menu">
+            <li class="header">TABLE OF CONTENTS</li>
+            <li class='active'><a href="#introduction"><i class='fa fa-circle-o'></i> Introduction</a></li>
+            <li><a href="#download"><i class='fa fa-circle-o'></i> Download</a></li>
+            <li><a href="#dependencies"><i class='fa fa-circle-o'></i> Dependencies</a></li>
+            <li><a href="#dependencies"><i class='fa fa-circle-o'></i> FAQ</a></li>
+            <li><a href="#advice"><i class='fa fa-circle-o'></i> Advice</a></li>
+            <li><a href="#layout"><i class='fa fa-circle-o'></i> Layout</a></li>
+            
+              </ul> -->
+            
+        </section>
+        <!-- /.sidebar -->
+      </aside>
+
+      <!-- Right side column. Contains the navbar and content of the page -->
+      <div class="content-wrapper">
+        <!-- Content Header (Page header) -->
+        <div class="content-header">
+<!--           <h1>
+            ClassConnect Documentation
+            <small>Current version 1.0</small>
+          </h1> -->
+<!--           <ol class="breadcrumb">
+            <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+            <li class="active">Documentation</li>
+          </ol> -->
+        </div>
+        <!-- <a href="/html/home.php">Back</a> -->
+        <div class="header">
+            <ul>
+                <li style="float:left"><a href="home.php" ><font size="4"><b>Class</b>Connect</font></a></li>
+                <li style="float:right"><a href="../html/logout.php"><font size="3">Logout</font></a></li>
+            </ul>
+            
+        </div>
+        <!-- Main content -->
+        <div class="content body">
+          <div class="callout callout-warning">
+<!--             <h4>Warning!</h4>
+            This documentation is under development. Some information may change as the progress of creating the documentation continues.
+          </div> -->
+          <section id='introduction'>
+            <h2 class='page-header'><span>Introduction</span></h2>
+            <p class='lead'>
+              <b>ClassConnect</b> will give students a centralized location to communicate with students in their classes, form study groups, and get reviews and information about the contents of a specific course. Students will be able to find peers in their class and form study group-chats using the messaging feature on the website. Students can also interact with each other by creating general posts on the course’s discussion board. ClassConnect will also include a description of the class and reviews from students who previously took the class. Users will be able to rate these reviews, and if a review is rated poorly it will be removed. Overall, ClassConnect will combine the features students use on Webcourses, Facebook, and GroupMe in one centralized location, in an easy to use format.
+            </p>
+          </section><!-- /#introduction -->
+
+          <!-- ============================================================= -->
+
+          <section id='download'>
+            <h2 class='page-header'><span>Download</span></h2>
+            <p class='lead'>
+              ClassConnect can be downloaded in two different versions, each appealing to different
+              skill levels and use case.
+            </p>
+            <div class='row'>
+              <div class='col-sm-6'>
+                <div class='box box-primary'>
+                  <div class='box-header with-border'>
+                    <h3 class='box-title'>Documents</h3>
+<!--                     <span class='label label-primary pull-right'><i class='fa fa-html5'></i></span> -->
+                  </div><!-- /.box-header -->
+                  <div class='box-body'>
+                    <p>All project files can be downloaded including: Concept of Operations, Software System, Project Management Plan, etc.</p>
+<!--                     <a href='#' class='btn btn-primary'><i class='fa fa-download'></i> Download</a> -->
+                  </div><!-- /.box-body -->
+                </div><!-- /.box -->
+              </div><!-- /.col -->
+              <div class='col-sm-6'>
+                <div class='box box-danger'>
+                  <div class='box-header with-border'>
+                    <h3 class='box-title'>Source Code</h3>
+<!--                     <span class='label label-danger pull-right'><i class='fa fa-database'></i></span> -->
+                  </div><!-- /.box-header -->
+                  <div class='box-body'>
+                    <p>All files including the compiled CSS. <br/><b>Requires a compiler.</b></p>
+<!--                     <a href='http://almsaeedstudio.com/download/AdminLTE' class='btn btn-danger'><i class='fa fa-download'></i> Download</a> -->
+                  </div><!-- /.box-body -->
+                </div><!-- /.box -->
+              </div><!-- /.col -->
+            </div><!-- /.row -->
+ <!--            <pre class='hierarchy'><code class="language-bash" data-lang="bash">File Hierarchy of the Source Code Package
+
+ClassConnect/
+├── dist/
+│   ├── CSS/
+│   ├── JS
+│   ├── img
+├── build/
+│   ├── less/
+│   │   ├── ClassConnect's Less files
+│   └── Bootstrap-less/ (Only for reference. No modifications have been made)
+│       ├── mixins/
+│       ├── variables.less
+│       ├── mixins.less
+└── plugins/
+    ├── All the customized plugins CSS and JS files</code></pre> -->
+          </section>
+
+          <!-- ============================================================= -->
+
+          <section id="dependencies">
+            <h2 class="page-header"><span>Dependencies</span></h2>
+            <p class="lead">ClassConnect depends on two main frameworks.
+              The downloadable package contains both of these libraries, so you don't have to manually download them.</p>
+            <ul class="lead">
+              <li><a href="http://getbootstrap.com" target="_blank">Bootstrap 3</a></li>
+              <li><a href="http://jquery.com/" target="_blank">jQuery 1.11+</a></li>
+              <li><a href="#plugins">All other plugins are listed below</a></li>
+            </ul>
+          </section>
+
+          <!-- ============================================================= -->
+           <section id="faq">
+            <h2 class="page-header"><span>FAQ</span></h2>
+            <p class="lead">This section contains questions that have been asked by users.
+              Additional information can be found throughout this webpage. </p>
+            <ul class="lead">
+              <li><a href="../courseNew.html" target="_blank">Where do I navigate to in order to add a course?</a></li>
+              <li><a href="../myaccount.html" target="_blank">Can I edit my account settings?</a></li>
+              <li><a href="#dependencies">Are there any dependencies with this?</a></li>
+            </ul>
+          </section>
+
+          <!-- ============================================================= -->
+
+          <section id='advice'>
+            <h2 class='page-header'><span>A Word of Advice</span></h2>
+            <p class='lead'>
+              Before you go to see your new awesome theme, here are few tips on how to familiarize yourself with it:
+            </p>
+
+            <ul>
+              <li><b>ClassConnect is based on <a href="http://getbootstrap.com/" target="_blank">Bootstrap 3</a>.</b> If you are unfamiliar with Bootstrap, visit their website and read through the documentation. All of Bootstrap components have been modified to fit the style of AdminLTE and provide a consistent look throughout the template. This way, we guarantee you will get the best of AdminLTE.</li>
+              <li><b>Documentation.</b> We are trying our best to make your experience with AdminLTE be smooth. One way to achieve that is to provide documentation and support. If you think that something is missing from the documentation, please do not hesitate to create an issue to tell us about it. Also, if you would like to contribute, email the support team at <a href="mailto:support@almsaeedstudio.com">support@almsaeedstudio.com</a>.</li>
+              <li><b>Built with <a href="http://lesscss.org/" target="_blank">LESS</a>.</b> This theme uses the LESS compiler to make it easier to customize and use. LESS is easy to learn if you know CSS or SASS. It is not necessary to learn LESS but it will benefit you a lot in the future.</li>
+              </ul>
+            <p>
+              <b>Note:</b> LESS files are better commented than the compiled CSS file.
+            </p>
+          </section>
+
+          <!-- ============================================================= -->
+
+          
+
+      <footer class="main-footer">
+        <div class="pull-right hidden-xs">
+          <b>Version</b> 1.0
+        </div>
+        <strong>Product of UCF COP 4331 &copy; 2017-2018 .</strong> <br/> All rights reserved.
+      </footer>
+
+    </div><!-- ./wrapper -->
+
+    <!-- jQuery 2.1.3 -->
+    <script src="../plugins/jQuery/jQuery-2.1.3.min.js"></script>
+    <!-- Bootstrap 3.3.2 JS -->
+    <script src="../bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+    <!-- FastClick -->
+    <script src='../plugins/fastclick/fastclick.min.js'></script>
+    <!-- AdminLTE App -->
+    <script src="../dist/js/app.min.js" type="text/javascript"></script>
+    <!-- SlimScroll 1.3.0 -->
+    <script src="../plugins/slimScroll/jquery.slimscroll.min.js" type="text/javascript"></script>
+    <script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js"></script>
+    <script>
+      $(function () {
+        $(".sidebar-menu li a").click(function () {
+          var $this = $(this);
+          var target = $this.attr("href");
+          if (typeof target === 'string') {
+            $("body").animate({
+              scrollTop: ($(target).offset().top - 32) + "px"
+            }, 500);
+          }
+        });
+
+      });
+    </script>
+  </body>
+</html>
